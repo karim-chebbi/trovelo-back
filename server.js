@@ -29,8 +29,8 @@ app.get("/", (req, res) => {
 const connectDB = require("./config/connectDB");
 connectDB();
 
-// // require car routes
-// app.use("/api/cars", require("./routes/carRoutes"));
+// require scooter routes
+app.use("/api/scooters", require("./routes/scooterRoutes"));
 
-// // require auth routes
-// app.use("/api/auth", require("./routes/authRoutes"));
+// require auth routes
+app.use("/api/auth", require("./routes/authRoutes"));
