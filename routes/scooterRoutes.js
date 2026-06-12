@@ -8,6 +8,8 @@ const {
   editScooterById,
   deleteScooterById,
 } = require("../controllers/scooterControllers");
+const isAuth = require("../middlewares/isAuth");
+const isAdmin = require("../middlewares/isAdmin");
 
 // require router
 const router = express.Router()
@@ -22,13 +24,13 @@ router.post("/", addScooter);
 router.get("/", getAllScooters);
 
 // require get scooter by id controller
-router.get("/:id", getScooterById);
+router.get("/:id", isAuth, isAdmin, getScooterById);
 
 // require update scooter by id controller
-router.put("/:id", editScooterById);
+router.put("/:id", isAuth, isAdmin, editScooterById);
 
 // require delete scooter by id controller
-router.delete("/:id", deleteScooterById);
+router.delete("/:id", isAuth, isAdmin, deleteScooterById);
 
 // export router
 module.exports = router

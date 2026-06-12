@@ -39,6 +39,7 @@ exports.register = async (req, res) => {
           firstName: newUser.firstName,
           lastName: newUser.lastName,
           email: newUser.email,
+          phone: newUser.phone,
         },
         process.env.SECRET_KEY,
         { expiresIn: "7d" }

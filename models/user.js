@@ -5,29 +5,36 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // create user schema
-const userSchema = new Schema({
+const userSchema = new Schema(
+  {
     firstName: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     lastName: {
-        type: String,
-        required: true
+      type: String,
     },
     email: {
-        type: String,
-        required: true,
-        unique: true
+      type: String,
+      required: true,
+      unique: true,
+    },
+    phone: {
+      type: String,
+      required: true,
     },
     password: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
     },
-}, {timestamps: true, collection: "users"})
+  },
+  { timestamps: true, collection: "users" }
+);
 
 // create user model
 module.exports = User = mongoose.model("User", userSchema)
