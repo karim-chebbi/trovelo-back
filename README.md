@@ -23,7 +23,7 @@ It provides authentication, role-based access control (admin/user), and full CRU
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/trovelo.git
+git clone https://github.com/karim-chebbi/trovelo-back.git
 cd trovelo
 2. Install dependencies
 npm install
