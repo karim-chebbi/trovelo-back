@@ -26,8 +26,8 @@ app.get("/", (req, res) => {
 });
 
 // // connect to MongoDB
-// const connectDB = require("./config/connectDB");
-// connectDB();
+const connectDB = require("./config/connectDB");
+connectDB();
 
 // // require car routes
 // app.use("/api/cars", require("./routes/carRoutes"));
