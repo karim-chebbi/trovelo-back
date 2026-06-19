@@ -88,7 +88,7 @@ exports.login = async (req, res) => {
       res
         .status(200)
         .send({
-          success: [{ msg: "User logged in successfully" }],
+          success: [{ msg: `Hello ${foundUser.firstName}, Welcome back!` }],
           user: foundUser,
           token: token,
         });

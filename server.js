@@ -1,11 +1,17 @@
 // require express
 const express = require("express");
 
+// require cors
+const cors = require("cors")
+
 // create an instance of express
 const app = express();
 
 // middleare to parse JSON
 app.use(express.json());
+
+// cors middleware
+app.use(cors())
 
 // require dotenv
 require("dotenv").config();

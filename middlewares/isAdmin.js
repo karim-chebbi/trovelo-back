@@ -3,9 +3,7 @@ const isAdmin = (req, res, next) => {
     return next();
   }
 
-  return res.status(403).json({
-    message: "Access denied. Admin only.",
-  });
+  return res.status(403).send({errors : [{msg: "Access denied. Admin only."}]});
 };
 
 module.exports = isAdmin;

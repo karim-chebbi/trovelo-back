@@ -45,7 +45,7 @@ exports.getAllScooters = async (req, res) => {
     res.status(200).send({
       success: [{ msg: "Scooters retrieved successfully" }],
       count: foundScooters.length,
-      Scooters: foundScooters,
+      scooters: foundScooters,
     });
   } catch (error) {
     res
@@ -64,7 +64,7 @@ exports.getScooterById = async (req, res) => {
         }
         res.status(200).send({
           success: [{ msg: "Scooter retrieved successfully" }],
-          Scooter: foundScooter,
+          scooter: foundScooter,
         });
     } catch (error) {
         res.status(500).send({errors : [{msg: "Server error getting Scooter by id"}]})
@@ -80,7 +80,7 @@ exports.editScooterById = async (req, res) => {
         if (!updatedScooter) {
             return res.status(404).send({errors : [{msg: "Scooter not found"}]})
         }
-        res.status(200).send({success: [{msg: "Scooter updated successfully"}], Scooter: updatedScooter})
+        res.status(200).send({success: [{msg: "Scooter updated successfully"}], scooter: updatedScooter})
     } catch (error) {
         res.status(500).send({errors : [{msg: "Server error updating Scooter by id"}]})
     }
@@ -94,7 +94,7 @@ exports.deleteScooterById = async (req, res) => {
         if (!deletedScooter) {
             return res.status(404).send({errors : [{msg: "Scooter not found"}]})
         }
-        res.status(200).send({success: [{msg: "Scooter deleted successfully", Scooter: deletedScooter}]})
+        res.status(200).send({success: [{msg: "Scooter deleted successfully", scooter: deletedScooter}]})
     } catch (error) {
         res.status(500).send({errors : [{msg: "Server error deleting Scooter by id"}]})
     }

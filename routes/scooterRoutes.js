@@ -24,13 +24,13 @@ router.post("/", addScooter);
 router.get("/", getAllScooters);
 
 // require get scooter by id controller
-router.get("/:id", isAuth, isAdmin, getScooterById);
+router.get("/:id",  getScooterById);
 
 // require update scooter by id controller
-router.put("/:id", isAuth, isAdmin, editScooterById);
+router.patch("/:id",  editScooterById);
 
 // require delete scooter by id controller
-router.delete("/:id", isAuth, isAdmin, deleteScooterById);
+router.delete("/:id",  deleteScooterById);
 
 // export router
 module.exports = router

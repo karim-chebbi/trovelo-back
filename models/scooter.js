@@ -43,6 +43,10 @@ const scooterSchema = new Schema(
       default: 0,
       min: 0,
     },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }
   },
   {
     timestamps: true,
