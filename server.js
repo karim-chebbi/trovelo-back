@@ -11,7 +11,12 @@ const app = express();
 app.use(express.json());
 
 // cors middleware
-app.use(cors())
+app.use(
+  cors({
+    origin: ["https://trovelo-front.vercel.app"],
+    credentials: true,
+  }),
+);
 
 // require dotenv
 require("dotenv").config();
@@ -20,15 +25,18 @@ require("dotenv").config();
 const PORT = process.env.PORT || 5005;
 
 // listen on PORT
-app.listen(PORT, (error) => {
-  error
-    ? console.log("Error starting server: ", error)
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, (error) => {
+    error ? console.log("Error starting server: ", error)
     : console.log(`⚡ ⚡ ⚡ Server is running on port http://localhost:${PORT}`);
-});
+  });
+}
+
+module.exports = app;
 
 // home route
 app.get("/", (req, res) => {
-  res.send("API is running...");
+  res.send("API is running..."); 
 });
 
 // // connect to MongoDB
