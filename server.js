@@ -32,7 +32,7 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-module.exports = app;
+
 
 // home route
 app.get("/", (req, res) => {
@@ -48,3 +48,6 @@ app.use("/api/scooters", require("./routes/scooterRoutes"));
 
 // require auth routes
 app.use("/api/auth", require("./routes/authRoutes"));
+
+
+module.exports = app;
